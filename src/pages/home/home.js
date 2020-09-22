@@ -10,9 +10,14 @@ const localStorageService = LocalStorageService.getService();
 const Home = () => {
   const homeAction = useStoreActions((actions) => actions.home);
   const [data, setData] = React.useState({ options: stockOptions });
+  // Storing the data in local storage
   localStorageService.setData(JSON.stringify({ options: stockOptions }));
 
   React.useEffect(() => {
+    // Not passing the interval querystring value as of now in the api
+    // as it is an optional value
+    // Although tested with interval=2, ist was working fine
+    // Just pass 'interval=2' in the getHistoricalData method
     homeAction
       .getHistoricalData()
       .then(function (response) {
@@ -29,6 +34,8 @@ const Home = () => {
           newEle.pop();
           return newEle;
         });
+        ohlcData.sort();
+        volume.sort();
         const updateStock = {
           options: {
             series: [

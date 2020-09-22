@@ -3,7 +3,7 @@ import axios from "axios";
 const headers = {
   "Content-type": "application/json",
 };
-const baseUrl = "https://kaboom.rksv.net/";
+const baseUrl = "http://kaboom.rksv.net/";
 const API = axios.create({
   baseURL: baseUrl,
   headers,

@@ -152,7 +152,7 @@ const MiniDrawer = (props) => {
             noWrap
             className={classes.title}
           >
-            Upstock OHLC Data
+            Upstock Dashboard
           </Typography>
         </Toolbar>
       </AppBar>

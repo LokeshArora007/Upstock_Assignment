@@ -1,6 +1,6 @@
 ## Project Name
 
-Upstock OHLC Data
+Upstock Dashboard
 
 ## Description
 

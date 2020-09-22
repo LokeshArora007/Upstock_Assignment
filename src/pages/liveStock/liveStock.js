@@ -2,8 +2,9 @@ import React from "react";
 import { Grid } from "@material-ui/core";
 import { StockChart } from "../../components";
 import { stockOptions } from "../../constants/stockOptions";
-
+import LocalStorageService from "../../services/localStorage";
 import io from "socket.io-client";
+const localStorageService = LocalStorageService.getService();
 
 const LiveStockPage = (props) => {
   const [stockOptionData, setStockOptionData] = React.useState({
@@ -42,6 +43,7 @@ const LiveStockPage = (props) => {
         },
       };
       setStockOptionData(updateStock);
+      localStorageService.setData(JSON.stringify(updateStock));
       ack(1);
     });
     socket.on("error", function (error) {
