@@ -18,7 +18,6 @@ PriceIndicator(Highcharts);
 FullScreen(Highcharts);
 
 const StockChart = (props) => {
-  console.log(props);
   const options = JSON.parse(localStorageService.getData());
   return (
     <>

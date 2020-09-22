@@ -29,7 +29,6 @@ const Home = () => {
           newEle.pop();
           return newEle;
         });
-        console.log(ohlcData);
         const updateStock = {
           options: {
             series: [

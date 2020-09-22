@@ -1,9 +1,9 @@
-import axios from 'axios';
+import axios from "axios";
 
 const headers = {
-  'Content-type': 'application/json',
+  "Content-type": "application/json",
 };
-const baseUrl = 'http://kaboom.rksv.net/';
+const baseUrl = "https://kaboom.rksv.net/";
 const API = axios.create({
   baseURL: baseUrl,
   headers,
@@ -14,7 +14,7 @@ const callList = [];
 const toggleIndicator = (url, type) => {
   if (type) {
     callList.push(`${baseUrl}/${url}`);
-    document.querySelector('.showLoader').style.display = 'flex';
+    document.querySelector(".showLoader").style.display = "flex";
   }
 
   if (!type) {
@@ -23,7 +23,7 @@ const toggleIndicator = (url, type) => {
       callList.splice(index, 1);
     }
     if (callList.length === 0) {
-      document.querySelector('.showLoader').style.display = 'none';
+      document.querySelector(".showLoader").style.display = "none";
     }
   }
 };
@@ -35,7 +35,7 @@ API.interceptors.request.use(
   },
   function (error) {
     return Promise.reject(error);
-  },
+  }
 );
 
 API.interceptors.response.use(
@@ -45,7 +45,7 @@ API.interceptors.response.use(
   },
   async function (error) {
     return Promise.reject(error);
-  },
+  }
 );
 
 export default API;

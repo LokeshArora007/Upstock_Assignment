@@ -12,7 +12,6 @@ const LiveStockPage = (props) => {
   const socket = io("http://kaboom.rksv.net/watch");
 
   socket.on("connect", () => {
-    console.log(socket.connected); // true
     // While subscribing, the state must be true
     socket.emit("sub", { state: true });
   });
@@ -22,7 +21,6 @@ const LiveStockPage = (props) => {
     const volumeData = [];
 
     socket.on("data", function (data, ack) {
-      console.log("Response: " + data);
       let newData = data.split(",").map((el) => +el);
       volumeData.push([
         newData[0], // the date
@@ -31,9 +29,6 @@ const LiveStockPage = (props) => {
       newData.pop();
       newData.pop();
       ohlcData.push(newData);
-      console.log(ohlcData);
-      //setLiveData(accumData);
-      //console.log(kjf);
       const updateStock = {
         options: {
           series: [
@@ -47,7 +42,6 @@ const LiveStockPage = (props) => {
         },
       };
       setStockOptionData(updateStock);
-      //console.log(updateStock);
       ack(1);
     });
     socket.on("error", function (error) {
@@ -61,7 +55,6 @@ const LiveStockPage = (props) => {
 
   socket.on("disconnect", () => {
     socket.emit("unsub", { state: false });
-    console.log(socket.connected); // false
   });
 
   return (
