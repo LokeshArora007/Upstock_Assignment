@@ -13,7 +13,7 @@ const Home = () => {
   // Storing the data in local storage
   localStorageService.setData(JSON.stringify({ options: stockOptions }));
 
-  React.useEffect(() => {
+  useEffect(() => {
     // Not passing the interval querystring value as of now in the api
     // as it is an optional value
     // Although tested with interval=2, ist was working fine

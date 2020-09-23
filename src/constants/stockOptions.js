@@ -1,7 +1,9 @@
 export const stockOptions = {
   yAxis: [
     {
-      height: "75%",
+      resize: {
+        enabled: true,
+      },
       labels: {
         align: "right",
         x: -3,
@@ -52,4 +54,7 @@ export const stockOptions = {
       ],
     },
   ],
+  credits: {
+    enabled: false,
+  },
 };
